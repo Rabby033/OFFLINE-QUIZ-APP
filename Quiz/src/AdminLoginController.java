@@ -57,7 +57,7 @@ public class AdminLoginController implements Initializable {
              Stage stage = (Stage)studentName.getScene().getWindow();
                      Scene scene = new Scene(root);
                      stage.setScene(scene); 
-                     stage.setFullScreen(true);
+                     stage.setMaximized(true);
             }
             catch(Exception e){
                 e.printStackTrace();
@@ -65,9 +65,9 @@ public class AdminLoginController implements Initializable {
             }
                      
             
-            System.out.println("Login Success"); 
+           // System.out.println("Login Success"); 
         }else{
-            System.out.println("Login Failed"); 
+          //  System.out.println("Login Failed"); 
         }
     }
 

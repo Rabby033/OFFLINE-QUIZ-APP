@@ -5,6 +5,7 @@
  */
 package controllers;
 
+import com.jfoenix.controls.JFXTabPane;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -27,6 +28,8 @@ public class AdminHomeFXMLController implements Initializable {
     private Tab addQuiz;
     @FXML
     private Tab addStudent;
+    @FXML
+    private JFXTabPane adminTab;
 
     /**
      * Initializes the controller class.
