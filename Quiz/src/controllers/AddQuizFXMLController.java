@@ -106,6 +106,7 @@ public class AddQuizFXMLController implements Initializable {
         else{
             System.out.println("Save");
             quizTitle.setEditable(false);
+//
         }
     }
 
