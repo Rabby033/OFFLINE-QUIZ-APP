@@ -171,5 +171,4 @@ public class AddQuizFXMLController implements Initializable {
         }
         
     }
-    
 }
