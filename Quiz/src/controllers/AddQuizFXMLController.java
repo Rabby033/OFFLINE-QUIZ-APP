@@ -9,9 +9,15 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
+import static com.sun.deploy.util.Waiter.set;
+import static com.sun.javafx.fxml.expression.Expression.set;
+import static java.lang.reflect.Array.set;
 import java.net.URL;
 import java.time.Duration;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.ResourceBundle;
+import java.util.Set;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -22,6 +28,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javax.management.Notification;
+import static javax.management.Query.value;
 import org.controlsfx.control.Notifications;
 
 /**
@@ -60,11 +67,18 @@ public class AddQuizFXMLController implements Initializable {
     @FXML
     private JFXButton setQuizTitleButton;
     @FXML
-    private Button SumbitQuestion1;
+    private Button cancel;
+    @FXML
+    private Button close;
 
     /**
      * Initializes the controller class.
      */
+    /**
+     *  Variables That Created by Programmer
+     */
+    private String title = null;
+    private HashMap<String,String[]> questions = new HashMap<>();
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -92,22 +106,15 @@ public class AddQuizFXMLController implements Initializable {
            notification.showError();
            notification.hideAfter(javafx.util.Duration.millis(2000));
             
-            
-            
-//            Alert a = new Alert(AlertType.NONE);
-//            a.setAlertType(AlertType.WARNING);
-//            //setContentText("Please Enter a valid Title");
-//            a.setTitle("Enter A Valid Title");
-//            a.setContentText("Please Enter A valid Title for your Quiz");
-//            a.show();
-            
-            
+ 
         }
         else{
             System.out.println("Save");
             quizTitle.setEditable(false);
+            this.title=title;
 //
         }
+        
     }
 
 
@@ -118,8 +125,9 @@ public class AddQuizFXMLController implements Initializable {
 
     @FXML
     private void cancel(ActionEvent event) {
-        
-    }
+           System.out.println("Cancel");
+               quizTitle.setEditable(true);
+    } 
 
     @FXML
     private void addNextQuestion(ActionEvent event) {
@@ -166,10 +174,47 @@ public class AddQuizFXMLController implements Initializable {
            notification.hideAfter(javafx.util.Duration.millis(2000));
             }
             else{
-                ///save the questions in file and show this
+                String[] data = new String[5];
+                data[0] = option1.getText();
+                 data[1] = option2.getText();
+                  data[2] = option3.getText();
+                   data[3] = option4.getText();
+                   
+                   Toggle selected = radioGroup.getSelectedToggle();
+                   if(selected == option1radio){
+                       data[4] = option1.getText();
+                   }
+                   else if(selected == option2radio){
+                       data[4] = option2.getText();
+                   }
+                   else if(selected == option3radio){
+                       data[4] = option3.getText();
+                   }
+                   else if(selected == option4radio) {
+                       data[4] = option4.getText();
+                   }
+                   
+                   // data[4] = ans.getText();
+                questions.put(question.getText(),data);
                 
+                Set<String> keySet = questions.keySet();
+                Iterator<String> it = keySet.iterator();
+                while(it.hasNext()){
+                   String qu = it.next();
+                   String[] values = questions.get(qu);
+                    System.out.println(qu);
+                for(String s : values){
+                    System.out.println(s);
+                }
+                
+                }
             }
         }
         
+    }
+//
+
+    @FXML
+    private void close(ActionEvent event) {
     }
 }
