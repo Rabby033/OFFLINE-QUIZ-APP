@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="641.0" prefWidth="709.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.AdminStudentTabController">
+   <children>
+      <SplitPane dividerPositions="0.33" layoutX="-53.0" layoutY="87.0" prefHeight="160.0" prefWidth="748.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <VBox fx:id="formContainer" layoutY="-1.0" prefHeight="689.0" prefWidth="291.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-1.0">
+                     <children>
+                        <Label prefHeight="33.0" prefWidth="202.0" text="     Student Information" textFill="#13d7ca">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <padding>
+                              <Insets left="9.0" right="3.0" top="2.0" />
+                           </padding>
+                        </Label>
+                        <Separator prefHeight="8.0" prefWidth="194.0" />
+                        <Label prefHeight="34.0" prefWidth="198.0" text="              Student Name :">
+                           <font>
+                              <Font name="Arial Narrow Bold" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Label>
+                        <JFXTextField fx:id="studentName" prefHeight="32.0" prefWidth="194.0" promptText="Enter Student Name here">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin></JFXTextField>
+                        <Label prefHeight="35.0" prefWidth="194.0" text="             Registration No:">
+                           <font>
+                              <Font name="Arial Narrow Bold" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Label>
+                        <JFXTextField fx:id="regNo" prefHeight="34.0" prefWidth="194.0" promptText="Enter  Registration No here">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin></JFXTextField>
+                        <Separator prefWidth="200.0">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Separator>
+                        <JFXButton fx:id="saveButton" onAction="#saveStudent" prefHeight="31.0" prefWidth="140.0" style="-fx-background-color: green;" text="Save Student">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <textFill>
+                              <LinearGradient endX="0.09478672985781987" endY="0.2985781990521327" startX="0.0947867298578199">
+                                 <stops>
+                                    <Stop color="BLACK" />
+                                    <Stop color="WHITE" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </textFill>
+                        </JFXButton>
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="30.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="374.0">
+               <children>
+                  <TreeTableView fx:id="studentTable" layoutX="48.0" layoutY="169.0" prefHeight="367.0" prefWidth="343.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                      <TreeTableColumn fx:id="studentNameColumn" prefWidth="215.0" text="Student Name" />
+                      <TreeTableColumn fx:id="registrationNoColumn" minWidth="0.0" prefWidth="255.0" text="Registration No." />
+                    </columns>
+                  </TreeTableView>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

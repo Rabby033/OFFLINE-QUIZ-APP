@@ -139,7 +139,9 @@ public class AddQuizFXMLController implements Initializable {
             String qu = question.getText();
             String nae = title;
             String R = nae + ".txt";
-            String name = R;
+            String S = nae + "answer.txt";
+            String name1 = R;
+            String name2 = S;
             String a, b, c, d, ans = "";
 
             {
@@ -163,7 +165,7 @@ public class AddQuizFXMLController implements Initializable {
                 // data[4] = ans.getText();
                 //  int flag=true;
                 try {
-                    String fname = name;
+                    String fname = name1;
                     File file = new File(fname);
                     FileWriter fr = new FileWriter(file, true);
                     BufferedWriter br = new BufferedWriter(fr);
@@ -306,8 +308,11 @@ public class AddQuizFXMLController implements Initializable {
                 String qu = question.getText();
                 String nae = title;
                 String R = nae + ".txt";
-                String name = R;
+                String S = nae + "answer.txt";
+                String name1 = R;
+                String name2 = S;
                 String a, b, c, d, ans = "";
+                String option = null;
 
                 {
 
@@ -319,18 +324,22 @@ public class AddQuizFXMLController implements Initializable {
                     Toggle selected = radioGroup.getSelectedToggle();
                     if (selected == option1radio) {
                         ans = option1.getText();
+                        option="1";
                     } else if (selected == option2radio) {
                         ans = option2.getText();
+                        option="2";
                     } else if (selected == option3radio) {
                         ans = option3.getText();
+                        option="3";
                     } else if (selected == option4radio) {
                         ans = option4.getText();
+                        option="4";
                     }
 
                     // data[4] = ans.getText();
                     //  int flag=true;
                     try {
-                        String fname = name;
+                        String fname = name1;
                         File file = new File(fname);
                         FileWriter fr = new FileWriter(file, true);
                         BufferedWriter br = new BufferedWriter(fr);
@@ -347,6 +356,13 @@ public class AddQuizFXMLController implements Initializable {
                         option2.clear();
                         option3.clear();
                         option4.clear();
+                         String faname = name2;
+                        File afile = new File(faname);
+                        FileWriter frw = new FileWriter(afile, true);
+                        BufferedWriter brw = new BufferedWriter(frw);
+                        brw.write(option);
+                        brw.close();
+                         
                     } catch (IOException e) {
                     }
                     noOfQuestion.setText(count + "");
